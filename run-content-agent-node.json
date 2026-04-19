@@ -1,0 +1,29 @@
+{
+  "name": "Run Content Agent",
+  "type": "n8n-nodes-base.executeWorkflow",
+  "parameters": {
+    "source": "database",
+    "workflowId": "={{ $vars.CONTENT_AGENT_WF_ID }}",
+    "mode": "once",
+    "workflowInputs": {
+      "values": [
+        {
+          "name": "client_id",
+          "value": "={{ $json.client_id }}"
+        },
+        {
+          "name": "action",
+          "value": "={{ $json.action }}"
+        },
+        {
+          "name": "payload",
+          "value": "={{ $json.payload }}"
+        },
+        {
+          "name": "execution_id",
+          "value": "={{ $json.execution_id }}"
+        }
+      ]
+    }
+  }
+}
